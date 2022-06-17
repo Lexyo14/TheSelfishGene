@@ -1,14 +1,6 @@
 public class Faithfull extends Men implements Runnable{
-    private static int cntf = 0;
     public int num;
     private int health=0;
-    Faithfull (){
-        cntf++;
-        super.cntm++;
-    }
-    public int countf(){
-        return cntf;
-    }
 
     public void run(){
         Club ne = new Club(this);
@@ -29,5 +21,6 @@ public class Faithfull extends Men implements Runnable{
         }
 
     }
+
 
 }
