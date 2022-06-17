@@ -1,14 +1,6 @@
 public class Fast extends Women {
-    private static int cnts = 0;
     public int num;
     private int health=0;
-    Fast (){
-        cnts++;
-        super.cntw++;
-    }
-    public int countc(){
-        return cnts;
-    }
 
     public void ChangeHealth(int k){
         health+=k;
