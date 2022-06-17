@@ -1,50 +1,82 @@
 public class Club extends Battle {
+
     public Men bf=new Men();
 
-    Club(Men me){
-        bf=me;
-    }
+    Club(Men me){bf=me;}
 
     public void meet(){
 
         //System.out.println(women_l.size());
         Women gf = new Women();
         synchronized (women_l){
-            if (women_l.size()==0){
+            if (maxw==0){
                 //System.out.println(women_l.size());
                 return;
             }
             int min = 0;
-            int max = women_l.size() - 1;
+            int max = maxw-1;
 
             int random_girl = (int)Math.floor(Math.random()*(max-min+1)+min);
             gf = women_l.remove(random_girl);
+            maxw--;
+            women_l.add(gf);
         }
 
         int h1=0 ;
         int h2=0;
         int child = (int)Math.floor(Math.random()* (2-1+1)+1);
+        int mutate = (int)Math.floor(Math.random()* (100-0+1)+0);
         if (Faithfull.class.isAssignableFrom(bf.getClass())){
             if (Coy.class.isAssignableFrom(gf.getClass())){
                 h1= (a-b)/2-c;
                 h2= (a-b)/2-c;
 
                 if (child == 1){
-                    Coy girl = new Coy();
-                    tmpw.add(girl);
+
+                    if (mutate<= mut){
+                        cnts++;
+                        Fast girl = new Fast();
+                        women_l.add(girl);
+                    }else{
+                        cntc++;
+                        Coy girl = new Coy();
+                        women_l.add(girl);
+                    }
+
                 }else{
-                    Faithfull boy = new Faithfull();
-                    tmpm.add(boy);
+                    if (mutate<= mut){
+                        cntp++;
+                        Philanderers boy = new Philanderers();
+                        men_l.add(boy);
+                    }else {
+                        cntf++;
+                        Faithfull boy = new Faithfull();
+                        men_l.add(boy);
+                    }
                 }
             }else{
                 h1= (a-b)/2;
                 h2= (a-b)/2;
                 if (child == 1){
-                    Fast girl = new Fast();
-                    tmpw.add(girl);
+                    if (mutate<= mut){
+                        cntc++;
+                        Coy girl = new Coy();
+                        women_l.add(girl);
+                    }else {
+                        cnts++;
+                        Fast girl = new Fast();
+                        women_l.add(girl);
+                    }
                 }else{
-                    Faithfull boy = new Faithfull();
-                    tmpm.add(boy);
+                    if (mutate<= mut){
+                        cntp++;
+                        Philanderers boy = new Philanderers();
+                        men_l.add(boy);
+                    }else {
+                        cntf++;
+                        Faithfull boy = new Faithfull();
+                        men_l.add(boy);
+                    }
                 }
 
             }
@@ -57,22 +89,36 @@ public class Club extends Battle {
                 h1 = a-b;
                 h2 = a;
                 if (child == 1){
-                    Fast girl = new Fast();
-                    tmpw.add(girl);
+                    if (mutate<= mut){
+                        Coy girl = new Coy();
+                        women_l.add(girl);
+                        cntc++;
+                    }else {
+                        Fast girl = new Fast();
+                        women_l.add(girl);
+                        cnts++;
+                    }
                 }else{
-                    Philanderers boy = new Philanderers();
-                    tmpm.add(boy);
+                    if (mutate<= mut){
+                        Faithfull boy = new Faithfull();
+                        men_l.add(boy);
+                        cntf++;
+                    }else {
+                        Philanderers boy = new Philanderers();
+                        men_l.add(boy);
+                        cntp++;
+                    }
                 }
             }
 
         }
-        bf.ChangeHealth(h2-10);
-        gf.ChangeHealth(h1-10);
-        if (bf.check_health(-30)){
-            tmpm.remove(bf);
+        bf.ChangeHealth(h2-year);
+        gf.ChangeHealth(h1-year);
+        if (bf.check_health(deathm)){
+            tmpm.add(bf);
         }
-        if (gf.check_health(-30)){
-            tmpw.remove(gf);
+        if (gf.check_health(deathw)){
+            tmpw.add(gf);
         }
 
     }
