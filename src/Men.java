@@ -1,5 +1,5 @@
 public class Men implements Runnable{
-    public static int cntm;
+
 
     public void ChangeHealth(int k){
 
@@ -11,4 +11,5 @@ public class Men implements Runnable{
     public boolean check_health(int k) {
         return true;
     }
+
 }
