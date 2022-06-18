@@ -2,14 +2,11 @@ package TheSelfishGene;
 
 import java.util.*;
 public class Battle {
-    public static Stack<Men> men_l= new Stack<Men>();
-    public static Stack<Women> women_l = new Stack<Women>();
-    public static Stack<Men> tmpm= new Stack<Men>();
-    public static Stack<Women> tmpw = new Stack<Women>();
-    public Philanderers phil = new Philanderers();
-    public Faithfull fait = new Faithfull();
-    public Fast fast = new Fast();
-    public Coy coy = new Coy();
+
+    public static Stack<Men> men_l;
+    public static Stack<Women> women_l;
+    public static Stack<Men> tmpm;
+    public static Stack<Women> tmpw;
     public static int a;
     public static int b;
     public static int c;
@@ -26,7 +23,16 @@ public class Battle {
     public static float cntc=0;
     public static float cnts=0;
     public static int mut;
+
+    Battle(){
+        men_l = new Stack<Men>();
+        women_l = new Stack<Women>();
+        tmpm = new Stack<Men>();
+        tmpw = new Stack<Women>();
+    }
+
     public String exe(int a, int b , int c, int p, int f, int co, int s, int rep, int year, int deathm, int deathw, int stability, int aprox,int mut) {
+        System.out.println(women_l);
         this.aprox=aprox;
         this.year=year;
         this.deathm=deathm;
@@ -57,16 +63,19 @@ public class Battle {
             Fast fast = new Fast();
             women_l.add(fast);
         }
-        ratios = new Float[]{(cntf/(f+p+co+s)) * 100, (cntc/(f+p+co+s)) * 100,(cntc/(f+p+co+s))*100,(cnts/(f+p+co+s))*100};
 
-        int stable = 0;
+        //list of ratios:
+        // ratios = { Ratio_Faithful/total, Ratio_Philanderers/total, Ratio_Coy/total, Ratio_Fast/total };
+        ratios = new Float[]{(cntf/(f+p+co+s)) * 100, (cntp/(f+p+co+s)) * 100,(cntc/(f+p+co+s))*100,(cnts/(f+p+co+s))*100};
+
+        int stable = 0; //if this is equal to Stability, then the program stops
         //tmpm.addAll(men_l);
         //tmpw.addAll(women_l);
 
         for (int j =0; j<rep;j++){
             maxw = women_l.size();
             maxm = men_l.size();
-            Thread[] th = new Thread[maxm];
+            Thread[] th = new Thread[maxm]; //array of thread of size number of man
             for (int k=0; k<maxm; k++) {
                 Men m = men_l.get(k);
                 Thread mythread = new Thread(m);

@@ -1,23 +1,28 @@
 package TheSelfishGene;
 public class Club extends Battle {
-
-    public Men bf=new Men();
-
-    Club(Men me){bf=me;}
+    public Men bf;
+    Club(Men me){bf=me;} //this i a contsractor and me is the man
 
     public void meet(){
+        //Main function of CLUb()
+        //makes people copulate
 
         //System.out.println(women_l.size());
-        Women gf = new Women();
+        Women gf;
         synchronized (women_l){
             if (maxw==0){
+                //when it scanned all the woman list
+
                 //System.out.println(women_l.size());
                 return;
             }
+
+            //taking a random girl from girl set (picking her index)
             int min = 0;
             int max = maxw-1;
-
             int random_girl = (int)Math.floor(Math.random()*(max-min+1)+min);
+
+
             gf = women_l.remove(random_girl);
             maxw--;
             women_l.add(gf);
@@ -25,8 +30,18 @@ public class Club extends Battle {
 
         int h1=0 ;
         int h2=0;
-        int child = (int)Math.floor(Math.random()* (2-1+1)+1);
-        int mutate = (int)Math.floor(Math.random()* (100-0+1)+0);
+
+        //randomly decide if it's a boy or a girl
+        int child = (int)Math.floor(Math.random()* (2-1+1)+1);//1 = woman, 2 = men
+
+        //is the child's gonna have a mutation?
+        int mutate = (int)Math.floor(Math.random()* (100-0+1)+0);//if this number less than mutation, it mutates
+
+        //depending on the matching:
+        switch(bf.getClass()){
+            case (Faithfull.class):
+
+        }
         if (Faithfull.class.isAssignableFrom(bf.getClass())){
             if (Coy.class.isAssignableFrom(gf.getClass())){
                 h1= (a-b)/2-c;
