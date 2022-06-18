@@ -8,6 +8,10 @@ public class Fast extends Women {
         health+=k;
     }
 
+    public int Id(){
+        return 2;
+    }
+
     @Override
     public boolean check_health(int k){
 
