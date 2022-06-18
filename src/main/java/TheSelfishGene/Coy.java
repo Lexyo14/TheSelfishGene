@@ -7,6 +7,10 @@ public class Coy extends Women{
         health+=k;
     }
 
+    public int Id(){
+        return 1;
+    }
+
     @Override
     public boolean check_health(int k){
         if (health<k){
