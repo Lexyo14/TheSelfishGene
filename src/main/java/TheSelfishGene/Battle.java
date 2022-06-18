@@ -4,9 +4,9 @@ import java.util.*;
 public class Battle {
 
     public static Stack<Men> men_l = new Stack<Men>();
-    public static Stack<Women> women_l= new Stack<>();
-    public static Stack<Men> tmpm = new Stack<>();
-    public static Stack<Women> tmpw = new Stack<>();
+    public static Stack<Women> women_l = new Stack<Women>();
+    public static Stack<Men> tmpm = new Stack<Men>();
+    public static Stack<Women> tmpw = new Stack<Women>();
     public static int a;
     public static int b;
     public static int c;
@@ -23,56 +23,63 @@ public class Battle {
     public static float cntc=0;
     public static float cnts=0;
     public static int mut;
-
+    /*
     Battle(){
         men_l = new Stack<Men>();
         women_l = new Stack<Women>();
         tmpm = new Stack<Men>();
         tmpw = new Stack<Women>();
     }
-
+    */
     public String exe(int a, int b , int c, int p, int f, int co, int s, int rep, int year, int deathm, int deathw, int stability, int aprox,int mut) {
+
+        men_l.clear();
+        women_l.clear();
+        tmpm.clear();
+        tmpw.clear();
+
+
         System.out.println(women_l);
-        this.aprox=stabilityApproximation;
+        this.aprox=aprox;
         this.year=year;
-        this.deathm=deathRateMan;
-        this.deathw=deathRateWoman;
+        this.deathm=deathm;
+        this.deathw=deathw;
         this.a=a;
         this.b=b;
         this.c=c;
         this.stability=stability;
-        this.mut=mutationPercentage;
-        cntp=philanderersMan;
-        cntf=faithfulMan;
-        cntc=cowWoman;
-        cnts=fastWoman;
+        this.mut=mut;
+        cntp=p;
+        cntf=f;
+        cntc=co;
+        cnts=s;
         //create the initiale set of men and women in lists
-        for (int i = 0; i<faithfulMan; i++) {
+        for (int i = 0; i<f; i++) {
             Faithfull faith = new Faithfull();
             men_l.add(faith);
         }
-        for (int i = 0; i<philanderersMan; i++ ){
+        for (int i = 0; i<p; i++ ){
             Philanderers ph = new Philanderers();
             men_l.add(ph);
         }
-        for (int i = 0; i<cowWoman; i++ ){
+        for (int i = 0; i<co; i++ ){
             Coy coy = new Coy();
             women_l.add(coy);
         }
-        for (int i = 0; i<fastWoman; i++ ){
+        for (int i = 0; i<s; i++ ){
             Fast fast = new Fast();
             women_l.add(fast);
         }
 
         //list of ratios:
         // ratios = { Ratio_Faithful/total, Ratio_Philanderers/total, Ratio_Coy/total, Ratio_Fast/total };
-        ratios = new Float[]{(cntf/(faithfulMan+philanderersMan+cowWoman+fastWoman)) * 100, (cntp/(faithfulMan+philanderersMan+cowWoman+fastWoman)) * 100,(cntc/(faithfulMan+philanderersMan+cowWoman+fastWoman))*100,(cnts/(faithfulMan+philanderersMan+cowWoman+fastWoman))*100};
+        ratios = new Float[]{(cntf/(f+p+co+s)) * 100, (cntp/(f+p+co+s)) * 100,(cntc/(f+p+co+s))*100,(cnts/(f+p+co+s))*100};
 
         int stable = 0; //if this is equal to Stability, then the program stops
         //tmpm.addAll(men_l);
         //tmpw.addAll(women_l);
 
-        for (int j =0; j<repetitions;j++){
+        for (int j =0; j<rep;j++){
             maxw = women_l.size();
             maxm = men_l.size();
             Thread[] ThreadListMan = new Thread[maxm]; //array of thread of size number of man
@@ -118,10 +125,10 @@ public class Battle {
 
             //stability check based on the previous generations:
             //System.out.println(cnts + " "+ cntc + " " +" "+ cntp + " "+ cntf+" "+ men_l.size() + " "+ women_l.size());
-            if ((ratios[0]-stabilityApproximation) < ((cntf)/(men_l.size()+ women_l.size()))*100 && ((cntf)/(men_l.size()+ women_l.size()))*100 < (ratios[0]+stabilityApproximation)){
-                if ((ratios[1]-stabilityApproximation)<((cntp)/(men_l.size()+ women_l.size()))*100 && ((cntp)/(men_l.size()+ women_l.size()))*100 < ratios[1]+stabilityApproximation){
-                    if (ratios[2]-stabilityApproximation < ((cntc)/(women_l.size()+ men_l.size()))*100 && ((cntc)/(women_l.size()+ men_l.size()))*100 < ratios[2]+stabilityApproximation){
-                        if (ratios[3]-stabilityApproximation< ((cnts)/(women_l.size()+ men_l.size()))*100 && ratios[3]+stabilityApproximation > ((cnts)/(women_l.size()+ men_l.size()))*100){
+            if ((ratios[0]-aprox) < ((cntf)/(men_l.size()+ women_l.size()))*100 && ((cntf)/(men_l.size()+ women_l.size()))*100 < (ratios[0]+aprox)){
+                if ((ratios[1]-aprox)<((cntp)/(men_l.size()+ women_l.size()))*100 && ((cntp)/(men_l.size()+ women_l.size()))*100 < ratios[1]+aprox){
+                    if (ratios[2]-aprox < ((cntc)/(women_l.size()+ men_l.size()))*100 && ((cntc)/(women_l.size()+ men_l.size()))*100 < ratios[2]+aprox){
+                        if (ratios[3]-aprox< ((cnts)/(women_l.size()+ men_l.size()))*100 && ratios[3]+aprox > ((cnts)/(women_l.size()+ men_l.size()))*100){
                             stable++;
                             ratios = new Float[]{((cntf)/(men_l.size()+ women_l.size()))*100,((cntp)/(men_l.size()+ women_l.size()))*100,((cntc)/(women_l.size()+ men_l.size()))*100,((cnts)/(women_l.size()+ men_l.size()))*100};
 

@@ -3,7 +3,9 @@ package TheSelfishGene;
 public class Faithfull extends Men implements Runnable{
     public int num;
     private int health=0;
-
+    public int Id(){
+        return 6;
+    }
     public void run(){
         Club ne = new Club(this);
         ne.meet();

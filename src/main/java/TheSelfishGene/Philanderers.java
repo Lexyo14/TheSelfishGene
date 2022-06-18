@@ -4,6 +4,12 @@ public class Philanderers extends Men implements Runnable {
     public int num;
     private int health=0;
 
+    @Override
+    public int Id(){
+        return 3;
+    }
+
+
 
     public void ChangeHealth(int k){
         health+=k;

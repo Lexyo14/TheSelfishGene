@@ -2,6 +2,9 @@ package TheSelfishGene;
 
 public class Men implements Runnable{
 
+    public int Id(){
+        return 0;
+    }
 
     public void ChangeHealth(int k){
 
@@ -13,5 +16,7 @@ public class Men implements Runnable{
     public boolean check_health(int k) {
         return true;
     }
+
+
 
 }
