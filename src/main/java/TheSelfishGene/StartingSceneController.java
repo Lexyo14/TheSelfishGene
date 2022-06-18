@@ -13,8 +13,8 @@ public class StartingSceneController {
     public void clickOnStartButton(ActionEvent event) {
         if (!running){
             running = true;
-            Execution execution = new Execution(); //creating a new Thread
-            execution.run();
+            Execution program = new Execution();
+            program.start();
             running = false;
         }
 
