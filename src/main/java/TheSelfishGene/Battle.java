@@ -79,7 +79,6 @@ public class Battle {
         //tmpw.addAll(women_l);
 
         for (int j =0; j<rep;j++){
-
             maxw = women_l.size();//total number of woman
             maxm = men_l.size();
             Thread[] ThreadListMan = new Thread[maxm]; //array of thread of size number of man
@@ -90,7 +89,7 @@ public class Battle {
                 ThreadListMan[k]=Man;
             }
 
-
+            /*
             //syncghronizing all newly created threads
             for (int k=0; k<maxm; k++){
                 try {
@@ -100,6 +99,8 @@ public class Battle {
                 }
 
             }
+
+             */
 
             //removin all dead man /not by index
             for (Men men : tmpm) {
@@ -153,7 +154,7 @@ public class Battle {
                 stable=0;
             }
             if (stable>=stability){
-                String Faith = String.format("%.02f", ratios[0]);
+                String Faith = String.format("%.2f", ratios[0]);
                 String Phil= String.format("%.2f", ratios[1]);
                 String Co=String.format("%.2f", ratios[2]);
                 String Fas = String.format("%.2f", ratios[3]);
@@ -165,7 +166,7 @@ public class Battle {
 
         }
 
-        return "unstable";
+        return "Unstable";
 
 
 
