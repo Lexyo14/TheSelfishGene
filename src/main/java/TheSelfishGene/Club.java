@@ -19,7 +19,7 @@ public class Club extends Battle {
                 return;
             }
 
-            //taking a random girl from girl set (picking her index)
+            //taking a random girl from girl list (picking her index)
             int min = 0;
             int max = maxw-1;
             int random_girl = (int)Math.floor(Math.random()*(max-min+1)+min);
@@ -28,7 +28,7 @@ public class Club extends Battle {
             gf = women_l.remove(random_girl);
             //gf = curren Woman
             maxw--;
-            women_l.add(gf);
+            women_l.add(gf);//wtf
         }
 
         int h1=0 ;
