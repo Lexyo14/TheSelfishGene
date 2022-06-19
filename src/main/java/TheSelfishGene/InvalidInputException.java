@@ -1,4 +1,4 @@
 package TheSelfishGene;
 
-public class InvalidInputException {
+public class InvalidInputException extends Exception{
 }

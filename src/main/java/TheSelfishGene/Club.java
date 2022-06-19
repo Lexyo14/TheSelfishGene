@@ -1,6 +1,6 @@
 package TheSelfishGene;
 public class Club extends Battle {
-    public Men bf;
+    public Men bf; //the guy is the one who called the club
     Club(Men me){//constructor
         bf=me;
         //bf = Boyfriend: current man
@@ -15,9 +15,7 @@ public class Club extends Battle {
         Women gf;
         synchronized (women_l){
             if (maxw==0){
-                //when it scanned all the woman list
-
-                //System.out.println(women_l.size());
+                //if no woman u don0t do anything
                 return;
             }
 

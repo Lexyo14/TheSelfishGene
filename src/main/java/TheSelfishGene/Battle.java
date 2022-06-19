@@ -38,7 +38,6 @@ public class Battle {
         tmpm.clear();
         tmpw.clear();
 
-
         System.out.println(women_l);
         this.aprox=aprox;
         this.year=year;
@@ -80,11 +79,12 @@ public class Battle {
         //tmpw.addAll(women_l);
 
         for (int j =0; j<rep;j++){
-            maxw = women_l.size();
+
+            maxw = women_l.size();//total number of woman
             maxm = men_l.size();
             Thread[] ThreadListMan = new Thread[maxm]; //array of thread of size number of man
             for (int k=0; k<maxm; k++) {
-                Men m = men_l.get(k);
+                Men m = men_l.get(k); //m = men_l[k]
                 Thread Man = new Thread(m);
                 Man.start();
                 ThreadListMan[k]=Man;

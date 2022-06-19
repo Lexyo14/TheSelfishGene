@@ -54,7 +54,6 @@ public class StartingSceneController implements Initializable {
                     wrongInput(Error);
                 }
 
-
                 running = true;
                 Execution program = new Execution(numberPhilanderers, numberFaithful, numberCow, numberFast, mDeathRate, fDeathRate, mut, approx, rep, year, stability);
                 program.start();
@@ -105,6 +104,9 @@ public class StartingSceneController implements Initializable {
     @FXML
     Label stabilityDisplay;
     int stability;
+
+
+    //following vaiables are used to show real time values in the execution tab
 
 
 
@@ -168,6 +170,12 @@ public class StartingSceneController implements Initializable {
                 stabilityDisplay.setText(Integer.toString(stability));
             }
         });
+
+
+        //execution tab:
+
+
+
     }
 
 
