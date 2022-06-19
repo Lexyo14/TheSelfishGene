@@ -31,7 +31,7 @@ public class Battle {
         tmpw = new Stack<Women>();
     }
     */
-    public String exe(int a, int b , int c, int p, int f, int co, int s, int rep, int year, int deathm, int deathw, int stability, int aprox,int mut) {
+    public String exe(int a, int b , int c, int numberPhilanderers, int numberFaithful, int numberCow, int numberFast, int rep, int year, int deathm, int deathw, int stability, int aprox,int mut) {
 
         men_l.clear();
         women_l.clear();
@@ -49,31 +49,31 @@ public class Battle {
         this.c=c;
         this.stability=stability;
         this.mut=mut;
-        cntp=p;
-        cntf=f;
-        cntc=co;
-        cnts=s;
+        cntp=numberPhilanderers;
+        cntf=numberFaithful;
+        cntc=numberCow;
+        cnts=numberFast;
         //create the initiale set of men and women in lists
-        for (int i = 0; i<f; i++) {
+        for (int i = 0; i<numberFaithful; i++) {
             Faithfull faith = new Faithfull();
             men_l.add(faith);
         }
-        for (int i = 0; i<p; i++ ){
+        for (int i = 0; i<numberPhilanderers; i++ ){
             Philanderers ph = new Philanderers();
             men_l.add(ph);
         }
-        for (int i = 0; i<co; i++ ){
+        for (int i = 0; i<numberCow; i++ ){
             Coy coy = new Coy();
             women_l.add(coy);
         }
-        for (int i = 0; i<s; i++ ){
-            Fast fast = new Fast();
-            women_l.add(fast);
+        for (int i = 0; i<numberFast; i++ ){
+            Fast fastWoman1 = new Fast();
+            women_l.add(fastWoman1);
         }
 
         //list of ratios:
         // ratios = { Ratio_Faithful/total, Ratio_Philanderers/total, Ratio_Coy/total, Ratio_Fast/total };
-        ratios = new Float[]{(cntf/(f+p+co+s)) * 100, (cntp/(f+p+co+s)) * 100,(cntc/(f+p+co+s))*100,(cnts/(f+p+co+s))*100};
+        ratios = new Float[]{(cntf/(numberFaithful+numberPhilanderers+numberCow+numberFast)) * 100, (cntp/(numberFaithful+numberPhilanderers+numberCow+numberFast)) * 100,(cntc/(numberFaithful+numberPhilanderers+numberCow+numberFast))*100,(cnts/(numberFaithful+numberPhilanderers+numberCow+numberFast))*100};
 
         int stable = 0; //if this is equal to Stability, then the program stops
         //tmpm.addAll(men_l);
