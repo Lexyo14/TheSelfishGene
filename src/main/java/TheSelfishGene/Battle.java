@@ -158,7 +158,9 @@ public class Battle {
                 String Co=String.format("%.2f", ratios[2]);
                 String Fas = String.format("%.2f", ratios[3]);
                 Float sum= ratios[0]+ratios[1]+ratios[2]+ratios[3];
-                return "faithfull " +  Faith +"%" + " philanderersMan " +Phil + "%" + " coy " + Co + "%" + " fast " + Fas + "%" + " Total percentace should be: 100 and it'fastWoman " + sum;
+                return "faithfull: " +  Faith +"%" + " philanderers: " +Phil + "%" + " coy: " + Co + "%" + " fast: "
+                        + Fas + "%\n" +
+                        "Correctness: " + sum + "%";
             }
 
         }
