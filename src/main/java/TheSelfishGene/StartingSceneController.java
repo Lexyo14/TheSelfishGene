@@ -18,7 +18,7 @@ public class StartingSceneController implements Initializable {
     Stage stage;
 
     @FXML
-    private Button startButton;
+    private CheckBox defaultValues;
     @FXML
     private TextField philanderersInput;
     @FXML
@@ -30,39 +30,83 @@ public class StartingSceneController implements Initializable {
     private Boolean running = false;
 
     public void clickOnStartButton(ActionEvent event) throws Exception{
-        if (!running){
+        if (!running) {
 
-            int numberPhilanderers = 0;
-            int numberFaithful = 0;
-            int numberCow = 0;
-            int numberFast = 0;
-            try {
-                numberPhilanderers = Integer.valueOf(philanderersInput.getText());
-                numberFaithful = Integer.valueOf(faithfulInput.getText());
-                numberCow = Integer.valueOf(cowInput.getText());
-                numberFast = Integer.valueOf(fastInput.getText());
-            }catch (Exception e){
-                String Error = "Invalid input for People (Male/Female)\nPlease, Only Integer numbers supported\nWe don't want to split people in half!!!";
-                wrongInput(Error);}
+            if (defaultValues.isSelected()) {
+                running = true;
+                Execution program = new Execution(10, 10, 10, 10,
+                        30, 30, 10, 7, 30, 10, 10);
+                program.start();
+                running = false;
+            } else {
+
+                int numberPhilanderers = 0;
+                int numberFaithful = 0;
+                int numberCow = 0;
+                int numberFast = 0;
+                try {
+                    numberPhilanderers = Integer.valueOf(philanderersInput.getText());
+                    numberFaithful = Integer.valueOf(faithfulInput.getText());
+                    numberCow = Integer.valueOf(cowInput.getText());
+                    numberFast = Integer.valueOf(fastInput.getText());
+                } catch (Exception e) {
+                    String Error = "Invalid input for People (Male/Female)\nPlease, Only Integer numbers supported\nWe don't want to split people in half!!!";
+                    wrongInput(Error);
+                }
 
 
-            running = true;
-            Execution program = new Execution(numberPhilanderers,numberFaithful,numberCow,numberFast,mDeathRate,fDeathRate);
-            program.start();
-            running = false;
+                running = true;
+                Execution program = new Execution(numberPhilanderers, numberFaithful, numberCow, numberFast, mDeathRate, fDeathRate, mut, approx, rep, year, stability);
+                program.start();
+                running = false;
+            }
         }
     }
+
 
     @FXML
     Slider maleDeathRateSlider;
     @FXML
-    Slider femaleDeathRateSlider;
-    @FXML
     Label maleDeathRateDisplay;
     int mDeathRate;
+
+    @FXML
+    Slider maleMutationSlider;
+    @FXML
+    Label maleMutationDisplay;
+    int mut;
+
+    @FXML
+    Slider femaleDeathRateSlider;
     @FXML
     Label femaleDeathRateDisplay;
     int fDeathRate;
+
+    @FXML
+    Slider approxSlider;
+    @FXML
+    Label approxDisplay;
+    int approx;
+
+    @FXML
+    Slider repSlider;
+    @FXML
+    Label repDisplay;
+    int rep;
+
+    @FXML
+    Slider yearSlider;
+    @FXML
+    Label yearDisplay;
+    int year;
+
+    @FXML
+    Slider stabilitySlider;
+    @FXML
+    Label stabilityDisplay;
+    int stability;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -72,7 +116,15 @@ public class StartingSceneController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
                 mDeathRate = (int) maleDeathRateSlider.getValue();
-                maleDeathRateDisplay.setText(Integer.toString(mDeathRate));
+                maleDeathRateDisplay.setText(Integer.toString(mDeathRate)+"%");
+            }
+        });
+
+        maleMutationSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                mut = (int) maleMutationSlider.getValue();
+                maleMutationDisplay.setText(Integer.toString(mut));
             }
         });
 
@@ -81,8 +133,40 @@ public class StartingSceneController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
                 fDeathRate = (int) femaleDeathRateSlider.getValue();
-                femaleDeathRateDisplay.setText(Integer.toString(fDeathRate));
-        }
+                femaleDeathRateDisplay.setText(Integer.toString(fDeathRate)+"%");
+            }
+        });
+
+        approxSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                approx = (int) approxSlider.getValue();
+                approxDisplay.setText(Integer.toString(approx));
+            }
+        });
+
+        repSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                rep = (int) repSlider.getValue();
+                repDisplay.setText(Integer.toString(rep));
+            }
+        });
+
+        yearSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                year = (int) yearSlider.getValue();
+                yearDisplay.setText(Integer.toString(year));
+            }
+        });
+
+        stabilitySlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                stability = (int) stabilitySlider.getValue();
+                stabilityDisplay.setText(Integer.toString(stability));
+            }
         });
     }
 
