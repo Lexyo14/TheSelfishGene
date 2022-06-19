@@ -1,6 +1,6 @@
 package TheSelfishGene;
 
-public class Coy extends Women{
+public class Coy implements Women{
     private int health=0;
 
     public void ChangeHealth(int k){
@@ -11,7 +11,7 @@ public class Coy extends Women{
         return 1;
     }
 
-    @Override
+
     public boolean check_health(int k){
         if (health<k){
             return true;

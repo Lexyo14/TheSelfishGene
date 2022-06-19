@@ -1,6 +1,6 @@
 package TheSelfishGene;
 
-public class Faithfull extends Men implements Runnable{
+public class Faithfull implements Men {
     public int num;
     private int health=0;
     public int Id(){
@@ -15,7 +15,6 @@ public class Faithfull extends Men implements Runnable{
         health+=k;
     }
 
-    @Override
     public boolean check_health(int k){
 
         if (health<k){

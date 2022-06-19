@@ -1,21 +1,16 @@
 package TheSelfishGene;
 
-public class Men implements Runnable{
+public interface Men extends Runnable{
 
-    public int Id(){
-        return 0;
-    }
+    public int Id();
 
-    public void ChangeHealth(int k){
+    public void ChangeHealth(int k);
 
-    }
 
     @Override
-    public void run() {}
+    public void run();
 
-    public boolean check_health(int k) {
-        return true;
-    }
+    public boolean check_health(int k);
 
 
 

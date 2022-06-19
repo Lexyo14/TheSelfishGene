@@ -1,13 +1,11 @@
 package TheSelfishGene;
 
-public class Women {
+public interface Women {
 
-    public int Id(){
-        return 1;
-    }
+    public int Id();
 
-    public void ChangeHealth(int k){}
+    public void ChangeHealth(int k);
 
-    public boolean check_health(int k){return true;}
+    public boolean check_health(int k);
 
 }

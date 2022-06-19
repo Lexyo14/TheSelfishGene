@@ -1,6 +1,6 @@
 package TheSelfishGene;
 
-public class Fast extends Women {
+public class Fast implements Women {
     public int num;
     private int health=0;
 
@@ -12,7 +12,6 @@ public class Fast extends Women {
         return 2;
     }
 
-    @Override
     public boolean check_health(int k){
 
         if (health<k){

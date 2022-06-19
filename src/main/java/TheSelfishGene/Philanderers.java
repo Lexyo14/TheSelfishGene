@@ -1,10 +1,10 @@
 package TheSelfishGene;
 
-public class Philanderers extends Men implements Runnable {
+public class Philanderers implements Men {
     public int num;
     private int health=0;
 
-    @Override
+
     public int Id(){
         return 3;
     }
@@ -15,14 +15,14 @@ public class Philanderers extends Men implements Runnable {
         health+=k;
     }
 
-    @Override
+
     public void run() {
         Club ne = new Club(this);
         ne.meet();
 
     }
 
-    @Override
+
     public boolean check_health(int k){
         if (health<k){
             return true;
