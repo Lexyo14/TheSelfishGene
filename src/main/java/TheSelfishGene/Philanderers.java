@@ -3,6 +3,17 @@ package TheSelfishGene;
 public class Philanderers implements Men {
     public int num;
     private int health=0;
+    /*
+    // exp is a variable for random death
+    public int exp;
+    Faithfull(int exp){
+        this.exp=exp;
+    }
+
+    public int get_exp(){
+        return this.exp;
+    }
+    */
 
 
     public int Id(){
