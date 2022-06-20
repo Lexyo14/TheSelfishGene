@@ -2,6 +2,14 @@ package TheSelfishGene;
 
 public class Coy implements Women{
     private int health=0;
+    /*
+    //exp is a variable for random death
+    public int exp;
+
+    Coy(int exp){
+        this.exp=exp;
+    }
+    */
 
     public void ChangeHealth(int k){
         health+=k;
