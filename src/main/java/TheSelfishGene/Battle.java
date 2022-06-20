@@ -23,7 +23,7 @@ public class Battle {
     public static float cntc=0;
     public static float cnts=0;
     public static int mut;
-    //public static int exp
+    //public static int expectancy
     /*
     Battle(){
         men_l = new Stack<Men>();
