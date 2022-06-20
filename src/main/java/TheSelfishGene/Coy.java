@@ -9,6 +9,10 @@ public class Coy implements Women{
     Coy(int exp){
         this.exp=exp;
     }
+    
+    public int get_exp(){
+        return this.exp;
+    }
     */
 
     public void ChangeHealth(int k){
