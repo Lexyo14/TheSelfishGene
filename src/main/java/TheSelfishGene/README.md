@@ -1,2 +1,1 @@
-# The-SelfishGene
-This is the main repository for our Java project
+Welcome to the program Selfish Gene. The software assesses the population's stability over a particular period of time. Please enter the necessary parameters into the application or select the Default Population option to continue.
