@@ -23,6 +23,7 @@ public class Battle {
     public static float cntc=0;
     public static float cnts=0;
     public static int mut;
+    //public static int exp
     /*
     Battle(){
         men_l = new Stack<Men>();
@@ -31,6 +32,7 @@ public class Battle {
         tmpw = new Stack<Women>();
     }
     */
+    //add an int expectancy
     public String exe(int a, int b , int c, int numberPhilanderers, int numberFaithful, int numberCow, int numberFast, int rep, int year, int deathm, int deathw, int stability, int aprox,int mut) {
 
         men_l.clear();
@@ -38,7 +40,7 @@ public class Battle {
         tmpm.clear();
         tmpw.clear();
 
-        System.out.println(women_l);
+        //this.expectancy=expectancy
         this.aprox=aprox;
         this.year=year;
         this.deathm=deathm;
@@ -55,18 +57,26 @@ public class Battle {
         //create the initiale set of men and women in lists
         for (int i = 0; i<numberFaithful; i++) {
             Faithfull faith = new Faithfull();
+            //for random death remove line above and uncomment line bellow
+            //Fast Faithfull = new Faithfull((int)Math.floor(Math.random()*(expactancy-0+1)+0));
             men_l.add(faith);
         }
         for (int i = 0; i<numberPhilanderers; i++ ){
             Philanderers ph = new Philanderers();
+            //for random death remove line above and uncomment line bellow
+            //Philanderers fast = new Philanderers((int)Math.floor(Math.random()*(expactancy-0+1)+0));
             men_l.add(ph);
         }
         for (int i = 0; i<numberCow; i++ ){
             Coy coy = new Coy();
+            //for random death remove line above and uncomment line bellow
+            //Coy fast = new Coy((int)Math.floor(Math.random()*(expactancy-0+1)+0));
             women_l.add(coy);
         }
         for (int i = 0; i<numberFast; i++ ){
             Fast fastWoman1 = new Fast();
+            //for random death remove line above and uncomment line bellow
+            //Fast fast = new Fast((int)Math.floor(Math.random()*(expactancy-0+1)+0));
             women_l.add(fastWoman1);
         }
 
