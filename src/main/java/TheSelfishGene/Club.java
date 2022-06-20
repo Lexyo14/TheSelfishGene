@@ -6,7 +6,6 @@ public class Club extends Battle {
         //bf = Boyfriend: current man
     }
 
-
     public void meet() {
         //Main function of CLUb()
         //makes people copulate
@@ -18,6 +17,7 @@ public class Club extends Battle {
             return;
         }
         */
+
         Women gf;
         synchronized (women_l) {
             if (maxw == 0) {
@@ -44,9 +44,7 @@ public class Club extends Battle {
                 */
 
         }
-            
-            
-        }
+
 
         int h1 = 0;
         int h2 = 0;
@@ -62,7 +60,6 @@ public class Club extends Battle {
         int max = Math.max(bf.get_exp(),gf.get_exp() );
         int min = Math.min(bf.get_exp(),gf.get_exp());
         */
-
         //depending on the matching:
         //Each type of people has it's unique id which sum will give a new id.
         //based on the result it will do something
