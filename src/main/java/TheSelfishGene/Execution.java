@@ -14,7 +14,9 @@ public class Execution extends Thread{
     int rep;
     int year;
     int stability;
-
+    //int expectancy
+    
+    //add an expactancy int in execution
     public Execution(int numberPhilanderers, int numberFaithful, int numberCow, int numberFast, int fDeathRate,
                      int mDeathRate, int mut, int approx, int rep, int year, int stability){
         this.numberPhilanderers = numberPhilanderers;
