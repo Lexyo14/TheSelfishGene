@@ -141,5 +141,13 @@ public class Club extends Battle {
                 }
                 break;
         }
+        bf.ChangeHealth(h2-year);
+        gf.ChangeHealth(h1-year);
+        if (bf.check_health(deathm)){
+            tmpm.add(bf);
+        }
+        if (gf.check_health(deathw)){
+            tmpw.add(gf);
+        }
     }
 }
