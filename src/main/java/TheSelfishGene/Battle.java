@@ -24,6 +24,7 @@ public class Battle {
     public static float cnts=0;
     public static int mut;
     //public static int expectancy
+
     /*
     Battle(){
         men_l = new Stack<Men>();
@@ -54,6 +55,9 @@ public class Battle {
         cntf=numberFaithful;
         cntc=numberCow;
         cnts=numberFast;
+
+        Main.controller.updatePopChart((int)cntp, (int)cntf, (int)cntc, (int)cnts);
+        Main.controller.updateTotalPopDisplay((int)(cntp+cntf+cntc+cnts),0);
         //create the initiale set of men and women in lists
         for (int i = 0; i<numberFaithful; i++) {
             Faithfull faith = new Faithfull();
@@ -89,6 +93,7 @@ public class Battle {
         //tmpw.addAll(women_l);
 
         for (int j =0; j<rep;j++){
+            Main.controller.updateProgressBar(j,rep);
             maxw = women_l.size();//total number of woman
             maxm = men_l.size();
             Thread[] ThreadListMan = new Thread[maxm]; //array of thread of size number of man
@@ -134,6 +139,12 @@ public class Battle {
             }
             tmpw.clear();
 
+            Main.controller.updatePopChart((int)cntp, (int)cntf, (int)cntc, (int)cnts);//updates pop chart
+            Main.controller.updateTotalPopDisplay((int)(cntp+cntf+cntc+cnts),j);//updates total pop chart
+
+            int[] rawValue = {((int)cntp), (int)cntf, (int)cntc, (int)cnts};
+            Main.controller.addRawValues(rawValue);
+
             //stability check based on the previous generations:
             //System.out.println(cnts + " "+ cntc + " " +" "+ cntp + " "+ cntf+" "+ men_l.size() + " "+ women_l.size());
             if ((ratios[0]-aprox) < ((cntf)/(men_l.size()+ women_l.size()))*100 && ((cntf)/(men_l.size()+ women_l.size()))*100 < (ratios[0]+aprox)){
@@ -169,6 +180,7 @@ public class Battle {
                 String Co=String.format("%.2f", ratios[2]);
                 String Fas = String.format("%.2f", ratios[3]);
                 Float sum= ratios[0]+ratios[1]+ratios[2]+ratios[3];
+                Main.controller.eventStable(j);
                 return "faithfull: " +  Faith +"%" + " philanderers: " +Phil + "%" + " coy: " + Co + "%" + " fast: "
                         + Fas + "%\n" +
                         "Correctness: " + sum + "%";
@@ -176,6 +188,7 @@ public class Battle {
 
         }
 
+        Main.controller.eventUnstable(rep);
         return "Unstable";
 
 
