@@ -14,10 +14,13 @@ public class Execution extends Thread{
     int rep;
     int year;
     int stability;
+    int a;
+    int b;
+    int c;
     //int expectancy
     
     //add an expactancy int in execution
-    public Execution(int numberPhilanderers, int numberFaithful, int numberCow, int numberFast, int fDeathRate,
+    public Execution(int a, int b, int c, int numberPhilanderers, int numberFaithful, int numberCow, int numberFast, int fDeathRate,
                      int mDeathRate, int mut, int approx, int rep, int year, int stability){
         this.numberPhilanderers = numberPhilanderers;
         this.numberFaithful = numberFaithful;
@@ -30,12 +33,15 @@ public class Execution extends Thread{
         this.rep = rep;
         this.year = year;
         this.stability = stability;
+        this.a = a;
+        this.b =b;
+        this.c = c;
     }
 
     public void run(){
         System.out.println("Executing the Simulator...");
-        Battle b = new Battle();
-        System.out.println(b.exe(5,9,2,numberPhilanderers,numberFaithful,numberCow,numberFast,rep,year,mDeathRate,fDeathRate,stability,approx,mut));
+        Battle battle = new Battle();
+        System.out.println(battle.exe(a,b,c,numberPhilanderers,numberFaithful,numberCow,numberFast,rep,year,mDeathRate,fDeathRate,stability,approx,mut));
     }
 //p = philanderers year = how many time passes between //deathm = die variable of man //stability = how many times has to be stable //aprox = stability approximation
     //mut = percentage of being

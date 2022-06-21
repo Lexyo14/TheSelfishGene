@@ -19,6 +19,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <TabPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TheSelfishGene.StartingSceneController">
    <tabs>
@@ -26,9 +28,17 @@
          <content>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="60.0" layoutY="14.0" prefHeight="35.0" prefWidth="227.0" text="The Selfish Gene" />
+                  <Label alignment="CENTER" layoutX="60.0" layoutY="14.0" prefHeight="35.0" prefWidth="227.0" text="The Selfish Gene" textFill="#0089ff">
+                     <font>
+                        <Font size="27.0" />
+                     </font></Label>
                   <Button fx:id="startButton" layoutX="230.0" layoutY="222.0" mnemonicParsing="false" onAction="#clickOnStartButton" prefHeight="25.0" prefWidth="47.0" text="Start" />
                   <Button fx:id="exitButton" layoutX="287.0" layoutY="222.0" mnemonicParsing="false" text="Stop" />
+                  <Text layoutX="29.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the program Selfish Gene. The software assesses the population's stability over a particular period of time. Please enter the necessary parameters into the application or select the Default Population option to continue." wrappingWidth="289.0">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </content>
@@ -107,7 +117,7 @@
                                     </VBox>
                                  </children>
                               </GridPane>
-                              <GridPane GridPane.columnIndex="2">
+                              <GridPane prefHeight="171.0" prefWidth="227.0" GridPane.columnIndex="2">
                                 <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="0.0" prefWidth="8.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="190.39998779296874" />
@@ -128,16 +138,9 @@
                                           <Slider fx:id="femaleDeathRateSlider" min="1.0" />
                                        </children>
                                     </VBox>
-                                    <VBox GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                       <children>
-                                          <Label text="Female mutation rate:" />
-                                          <Slider fx:id="femaleMutationSlider" />
-                                       </children>
-                                    </VBox>
                                     <Label fx:id="maleDeathRateDisplay" prefHeight="18.0" prefWidth="55.0" text="1%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                     <Label fx:id="maleMutationDisplay" prefHeight="18.0" prefWidth="110.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                     <Label fx:id="femaleDeathRateDisplay" prefHeight="18.0" prefWidth="79.0" text="1%" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                    <Label fx:id="femaleMutationDisplay" prefHeight="18.0" prefWidth="101.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                                     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <children>
                                           <Label text="Male death rate:" />
@@ -153,6 +156,16 @@
                                     <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                                        <children>
                                           <CheckBox fx:id="defaultValues" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="DefaultValues" textFill="RED" underline="true" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="32.0" prefWidth="189.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label text="A:" />
+                                          <TextField fx:id="inputA" minHeight="0.0" prefHeight="17.0" prefWidth="25.0" />
+                                          <Label text="B:" />
+                                          <TextField fx:id="inputB" minHeight="0.0" prefHeight="19.0" prefWidth="25.0" />
+                                          <Label text="C:" />
+                                          <TextField fx:id="inputC" minHeight="0.0" prefHeight="19.0" prefWidth="25.0" />
                                        </children>
                                     </HBox>
                                  </children>

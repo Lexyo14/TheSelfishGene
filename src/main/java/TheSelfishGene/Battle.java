@@ -104,7 +104,7 @@ public class Battle {
                 ThreadListMan[k]=Man;
             }
 
-            /*
+
             //syncghronizing all newly created threads
             for (int k=0; k<maxm; k++){
                 try {
@@ -115,7 +115,7 @@ public class Battle {
 
             }
 
-             */
+
 
             //removin all dead man /not by index
             for (Men men : tmpm) {

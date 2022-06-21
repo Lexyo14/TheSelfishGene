@@ -33,6 +33,13 @@ public class StartingSceneController extends Battle implements Initializable {
     private TextField fastInput;
     @FXML
     private TextField cowInput;
+    @FXML
+    private TextField inputA;
+    @FXML
+    private TextField inputB;
+    @FXML
+    private TextField inputC;
+
     private Boolean running = false;
 
     @FXML
@@ -52,7 +59,7 @@ public class StartingSceneController extends Battle implements Initializable {
             executed = false;
             if (defaultValues.isSelected()) {
                 running = true;
-                Execution program = new Execution(5, 13, 40, 10,
+                Execution program = new Execution(7,9,2,5, 13, 40, 10,
                         100, 100, 10, 1, 100, 10, 10);
                 program.start();
                 running = false;
@@ -62,18 +69,24 @@ public class StartingSceneController extends Battle implements Initializable {
                 int numberFaithful = 0;
                 int numberCow = 0;
                 int numberFast = 0;
+                int a = 0;
+                int b = 0;
+                int c = 0;
                 try {
                     numberPhilanderers = Integer.valueOf(philanderersInput.getText());
                     numberFaithful = Integer.valueOf(faithfulInput.getText());
                     numberCow = Integer.valueOf(cowInput.getText());
                     numberFast = Integer.valueOf(fastInput.getText());
+                    a = Integer.valueOf(inputA.getText());
+                    b = Integer.valueOf(inputB.getText());
+                    c = Integer.valueOf(inputC.getText());
                 } catch (Exception e) {
                     String Error = "Invalid input for People (Male/Female)\nPlease, Only Integer numbers supported\nWe don't want to split people in half!!!";
                     wrongInput(Error);
                     return;
                 }
                 running = true;
-                Execution program = new Execution(numberPhilanderers, numberFaithful, numberCow, numberFast,
+                Execution program = new Execution(a,b,c,numberPhilanderers, numberFaithful, numberCow, numberFast,
                         mDeathRate, fDeathRate, mut, approx, rep, year, stability);
                 program.start();
                 running = false;
@@ -310,7 +323,7 @@ public class StartingSceneController extends Battle implements Initializable {
         if (executed == true) {
             //creating the graph
             NumberAxis xAxis = new NumberAxis();
-            xAxis.setLabel("Amount");
+            xAxis.setLabel("Year");
             NumberAxis yAxis = new NumberAxis();
             yAxis.setLabel("Population");
             LineChart BigGraph = new LineChart<>(xAxis, yAxis);
